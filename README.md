@@ -23,13 +23,6 @@
   > scala -i rational
 ```
 
-## Internal Implementation :
-    * Trie => ``` Creates a trie composed of all Nodes. ```
-    * Node
-        * Map => ``` Key -> Character, Value -> Node. ```
-        * Rank => ``` Stores Rank for Current Character. ```
-        * Terminal => ``` Indicates End of Word. ```
-
 ## To Do :
   * Add More Operations performed by Rational Numbers.
   * An Interface for the RationalNumber Class.
