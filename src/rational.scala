@@ -5,11 +5,18 @@ class RationalNumber(n: Int,d: Int){
 	val denominator : Int=d/g
 	override def toString=numerator+"/"+denominator
 	def this(n: Int) = this(n, 1)
-	def add(second: RationalNumber):RationalNumber=new RationalNumber(numerator*second.denominator+second.numerator*denominator,denominator*second.denominator)
-	def subtract(second: RationalNumber):RationalNumber=new RationalNumber(numerator*second.denominator-second.numerator*denominator,denominator*second.denominator)
-	def multiply(second: RationalNumber):RationalNumber=new RationalNumber(numerator*second.numerator,denominator*second.denominator)
-	def divide(second: RationalNumber):RationalNumber=new RationalNumber(numerator*second.denominator,denominator*second.numerator)
-	def lessThan(that: RationalNumber)=(this.numerator*that.denominator<that.numerator*this.denominator)
-	def max(that: RationalNumber)=(if(this.lessThan(that))that else this)
+	def +(secondary: RationalNumber):RationalNumber=(add(secondary))
+	def *(secondary: RationalNumber):RationalNumber=(multiply(secondary))
+	def -(secondary: RationalNumber):RationalNumber=(subtract(secondary))
+	def /(secondary: RationalNumber):RationalNumber=(divide(secondary))
+	def <(secondary: RationalNumber):Boolean=(lessThan(secondary))
+	def >(secondary: RationalNumber):Boolean=(!lessThan(secondary))
+	def add(secondary: RationalNumber):RationalNumber=new RationalNumber(numerator*secondary.denominator+secondary.numerator*denominator,denominator*secondary.denominator)
+	def subtract(secondary: RationalNumber):RationalNumber=new RationalNumber(numerator*secondary.denominator-secondary.numerator*denominator,denominator*secondary.denominator)
+	def multiply(secondary: RationalNumber):RationalNumber=new RationalNumber(numerator*secondary.numerator,denominator*secondary.denominator)
+	def divide(secondary: RationalNumber):RationalNumber=new RationalNumber(numerator*secondary.denominator,denominator*secondary.numerator)
+	def lessThan(secondary: RationalNumber):Boolean= {if(this.numerator*secondary.denominator<secondary.numerator*this.denominator)return true else false}
+	def max(secondary: RationalNumber)=(if(this.lessThan(secondary))secondary else this)
+	def min(secondary: RationalNumber)=(if(this.lessThan(secondary))this else secondary)
 	private def gcd(a: Int, b: Int): Int = (if(b==0) a else gcd(b,a%b))
 }
