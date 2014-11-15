@@ -34,6 +34,8 @@ class RationalNumber(n: Int,d: Int){
 		else 
 			new RationalNumber(math.pow(denominator,math.abs(secondary)).toInt,math.pow(numerator,math.abs(secondary)).toInt)
 	}
+	def multiplicativeInverse(secondary: Int):RationalNumber=(pow(secondary* -1))
+	def additiveInverse():RationalNumber=new RationalNumber(numerator* -1,denominator)
 	def ^(secondary: Int):RationalNumber=(pow(secondary))
 	private def gcd(a: Int, b: Int): Int = (if(b==0) a else gcd(b,a%b))
 }
